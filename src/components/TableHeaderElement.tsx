@@ -13,9 +13,9 @@ interface TableHeaderElementProps {
 // a custom element that will be used in the th of the table columns
 function TableHeaderElement({
   name,
-  handleClick,
   children,
   sortingOptions,
+  handleClick,
 }: TableHeaderElementProps) {
   return (
     <>
@@ -42,7 +42,7 @@ function TableHeaderElement({
             // data attribute used to pass correct keys to the sorting update funtion
             // this is passed on to the fn and then the API query to return sorted data
             data-name={name}
-            onClickCapture={(e: React.MouseEvent<Element, MouseEvent>): void =>
+            onClick={(e: React.MouseEvent<Element, MouseEvent>): void =>
               handleClick(e)
             }
             src={sortingOptions.order === 'asc' ? ArrowUp : ArrowDown}
