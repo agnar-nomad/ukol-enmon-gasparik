@@ -113,6 +113,30 @@ export function EditableTable() {
     attemptUpdate(item);
   }
 
+  // PAGINATION handlers
+  function handlePaginationUp() {
+    if (page >= 20) return;
+    else {
+      setPage((prev) => prev + 1);
+    }
+  }
+  function handlePaginationDown() {
+    if (page <= 1) return;
+    else {
+      setPage((prev) => prev - 1);
+    }
+  }
+
+  // SORTING implementation
+  // clicking the arrow icon on the header will set new data in state, which triggers a re-render and a new API request
+  function handleSorting(e: React.MouseEvent<Element, MouseEvent>) {
+    const fieldName = (e.target as HTMLElement).dataset.name;
+    const newSortingOrder = sortingOptions.order === 'asc' ? 'desc' : 'asc';
+    if (fieldName !== undefined) {
+      setSortingOptions({ order: newSortingOrder, field: fieldName });
+    }
+  }
+
   return (
     <>
       {/* error message if present */}
