@@ -1,5 +1,5 @@
+/* CSS reset has been handled by Pico CSS */
 /* ================================================= */
-/* actual styles */
 .header-section {
   display: flex;
   align-items: center;
@@ -17,7 +17,7 @@
 .pagination span {
   font-size: 1.3em;
   margin-inline: 0;
-  padding-inline: 0em;
+  padding-inline: 0;
 }
 .pagination img {
   width: 1.3em;

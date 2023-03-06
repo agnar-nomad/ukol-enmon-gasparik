@@ -1,3 +1,4 @@
+// returns an ISO8601 formatted date string, in accordance with Strapi's working model
 export function formatToISO8601(dateString: string): string {
   const parts = dateString.split(' ');
   const dateParts = parts[0].split('/');
@@ -11,6 +12,7 @@ export function formatToISO8601(dateString: string): string {
   return date.toISOString();
 }
 
+// returns a human readable European date formatted string for easier user experience
 export function formatDate(isoDateString: string): string {
   const date = new Date(isoDateString);
   const day = date.getUTCDate().toString().padStart(2, '0');

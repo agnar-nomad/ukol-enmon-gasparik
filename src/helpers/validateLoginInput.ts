@@ -1,5 +1,8 @@
 import { LoginInput } from '../components/Form';
 
+// this function will check if the provided inputs are in the expected format
+// if so it return true
+// if not, it will throw an error and the encapsulting try/catch statement will handle the error and stop the login process
 export function validateLoginInput({ email, password }: LoginInput) {
   if (
     !email
