@@ -5,9 +5,6 @@ import { useEnmonApp } from './AppContext';
 import Header from './components/Header';
 import { EditableTable } from './components/EditableTable';
 
-// TODO remove password hardcoding
-// TODO write README
-
 function App() {
   // grab Login state from Context
   const { isLoggedIn } = useEnmonApp();

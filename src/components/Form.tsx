@@ -10,8 +10,8 @@ export type LoginInput = {
 
 const Form = () => {
   const [formData, setFormData] = useState<LoginInput>({
-    email: 'homework@enmon.tech',
-    password: 'GHrSyhF5m6M8G5PT',
+    email: '',
+    password: '',
   });
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [loginError, setLoginError] = useState<string | null>('');
