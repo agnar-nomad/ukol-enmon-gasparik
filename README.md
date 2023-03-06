@@ -2,7 +2,9 @@
 
 This is my rendition of the take-home task received as part of the interview process. The task calls for a font-end app that consumes an existing API with fake data from company measuring devices and displays it to the user, with the options to sort and paginate the table, but importantly enables the userto edit the data inline and update the database with that data.
 
-The app was build in Typescript 4.9 with React 18.2, Vite 4.1, Axios 1.3. The app consumes data served from the backend using Strapi v4. The editable table component is implemented with a library called React Edit List, v1.1. Styling is mostly handled by the lightweight Pico CSS library, v1.5.
+The app was build in Typescript 4.9 with React 18.2, Vite 4.1, Axios 1.3 and the PNPM package manager. The app consumes data served from the backend using Strapi v4. The editable table component is implemented with a library called React Edit List, v1.1. Styling is mostly handled by the lightweight Pico CSS library, v1.5.
+
+For a development vf version the app, use `pnpm run dev` inside the project folder.
 
 ## Criteria
 
