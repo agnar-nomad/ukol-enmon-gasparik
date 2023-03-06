@@ -10,13 +10,13 @@ For a development version of the app, use `pnpm run dev` inside the project fold
 
 - User can log-in the app using basic credentials, this requests a jwt token and then retrieves data if successful
 
-- After login, the user sees a table of data, paginated byt 25 entries and sorted based on ID
+- After login, the user sees a table of data, paginated by 25 entries and sorted based on ID
 
 - The table shows 7 data fields, with a date formatted to a familiar string for easier work
 
-- Table supports pagination and sorting by column heads
+- Table supports pagination and sorting by column headers
 
-- User can edit the table data,and after saving it, this triggers a PUT request to the backend, to update the respective data
+- User can edit the table data, and after saving it, this triggers a PUT request to the backend, to update the respective data
 
 - User can log out, this changes the visual state of the app, as well as deletes the jwt token from local storage, where it was stored for use in update requestx to the backend
 
