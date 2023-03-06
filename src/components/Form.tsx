@@ -45,17 +45,17 @@ const Form = () => {
         });
 
         // set data in the global tableData state
-        console.log('Form line 48: TABLE data', response.data);
+        console.log('Login Form line 48: TABLE data', response.data);
         handleNewTableData(response.data);
 
         setIsLoading(false);
         handleLogIn(); // set the global login state to true
       } catch (err: any) {
         if (err.code === 'ERR_BAD_REQUEST') {
-          console.error('🔴🔴 request', err.message);
+          console.error('🔴request', err.message);
           setLoginError('Invalid credentials! Please try again');
         } else {
-          console.error('💥💥 LOGIN Error', err.message);
+          console.error('💥LOGIN Error', err.message);
           setLoginError('There was an error : ' + err.message);
         }
         setIsLoading(false);
@@ -66,7 +66,7 @@ const Form = () => {
 
   return (
     <>
-      {/* a simple form with styling using picocss */}
+      {/* a simple form styled using Pico css */}
       <form
         onSubmit={async (e) => {
           e.preventDefault();

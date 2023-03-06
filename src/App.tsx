@@ -5,15 +5,11 @@ import { useEnmonApp } from './AppContext';
 import Header from './components/Header';
 import { EditableTable } from './components/EditableTable';
 
-// TODO refactoring
-
-// TODO branch workflow
 // TODO remove password hardcoding
 // TODO write README
-// TODO
 
 function App() {
-  // grab state from Context
+  // grab Login state from Context
   const { isLoggedIn } = useEnmonApp();
 
   return (

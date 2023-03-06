@@ -23,7 +23,7 @@ export type SortOptions = {
   order: string;
 };
 
-// This is the schema for the table input data
+// This is a schema for the table input data, also describes table headers
 const newSchema: REL.Schema = [
   { name: 'id', type: 'id' },
   { name: 'submitted_at', type: 'string' },
@@ -56,17 +56,18 @@ export function EditableTable() {
 
   // grab the JWT for later use
   const accessToken = localStorage.getItem('accessToken');
-  // manage state using Context
+  // grab data to manage state using Context
   const { tableData, handleNewTableData } = useEnmonApp();
 
-  // prepare the final visible data for the end user, select some fields from the huge response objects
+  // prepare the final visible data for the end user
+  // select some fields from the huge response objects
   const newData: TableData[] = tableData.map((entry) => {
     return {
       id: entry.id,
       submitted_at:
         entry['submitted_at'] === null
           ? null
-          : formatDate(entry['submitted_at']),
+          : formatDate(entry['submitted_at']), // to a familiar format
       owner: entry.owner,
       monitored_entity: entry['monitored_entity'],
       meter_type: entry['meter_type'],
@@ -80,7 +81,7 @@ export function EditableTable() {
   function handleUpdate(item) {
     async function attemptUpdate(item: TableData) {
       try {
-        // prepare data for sending
+        // prepare url and data for sending
         const resourceUrl = import.meta.env.VITE_ENMON_PUT_ROUTE;
         const id = item.id;
         const convertedDate =
@@ -158,7 +159,7 @@ export function EditableTable() {
           signal: controller.signal,
         });
 
-        // save new data to state
+        // save new data to state, triggers a re-render
         handleNewTableData(res.data);
       } catch (error) {
         if (axios.isAxiosError(error)) {
@@ -182,6 +183,7 @@ export function EditableTable() {
       {updateError && (
         <p style={{ color: 'red' }}>
           There was an error updating this data. Please refresh and try again.
+          {updateError}
         </p>
       )}
       {/* pagination */}
