@@ -1,0 +1,33 @@
+/* ================================================= */
+/* actual styles */
+.header-section {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding-top: 20px;
+}
+.header-section button {
+  width: 20%;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.pagination span {
+  font-size: 1.3em;
+  margin-inline: 0;
+  padding-inline: 0em;
+}
+.pagination img {
+  width: 1.3em;
+  cursor: pointer;
+}
+.th-bold {
+  font-weight: bold;
+}
+.btn-m {
+  margin-inline: 5px;
+  font-size: 25px;
+  padding: 0.25em 0.75em;
+}
