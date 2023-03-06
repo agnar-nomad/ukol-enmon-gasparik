@@ -137,6 +137,45 @@ export function EditableTable() {
     }
   }
 
+  // General setup to update table data according to sorting or pagination param changes
+  // if pagination or sorting parameters saved in state change, this side effect will fire
+  useEffect(() => {
+    const controller = new AbortController();
+    async function sortTable() {
+      // assemble the whole url and ask for data
+      const resourceLink = import.meta.env.VITE_ENMON_GET_ROUTE;
+      const pagination = `pagination[page]=${page}&pagination[pageSize]=25`;
+      const sorting = `sort=${sortingOptions.field || 'id'}:${
+        sortingOptions.order
+      }`;
+      const url = `${resourceLink}?${pagination}&${sorting}`;
+
+      try {
+        const res = await axios.get(url, {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+          signal: controller.signal,
+        });
+
+        // save new data to state
+        handleNewTableData(res.data);
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          console.log('error message: ', error.message);
+          return error.message;
+        } else {
+          console.log('unexpected error: ', error);
+          return 'An unexpected error occurred';
+        }
+      }
+    }
+    sortTable();
+
+    // cleanup
+    return () => controller.abort();
+  }, [page, sortingOptions]);
+
   return (
     <>
       {/* error message if present */}
